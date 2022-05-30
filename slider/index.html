@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>Slider</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.min.css" media="screen, print">
+    <link rel="stylesheet" type="text/css" href="css/smartslider.min.css" media="screen, print">
+    <style type="text/css">
+        .n2-ss-spinner-rectangle-dark-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -20px -30px;
+            background: RGBA(0, 0, 0, 0.8);
+            width: 50px;
+            height: 30px;
+            padding: 5px;
+            border-radius: 3px;
+            z-index: 1000;
+        }
+
+        .n2-ss-spinner-rectangle-dark {
+            width: 100%;
+            height: 100%;
+            outline: 1px solid RGBA(0, 0, 0, 0);
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .n2-ss-spinner-rectangle-dark>div {
+            background-color: #fff;
+            margin: 0 1px;
+            height: 100%;
+            width: 6px;
+            display: inline-block;
+            animation: n2RectangleDark 1.2s infinite ease-in-out;
+        }
+
+        div.n2-ss-spinner-rectangle-2 {
+            animation-delay: -1.1s;
+        }
+
+        div.n2-ss-spinner-rectangle-3 {
+            animation-delay: -1.0s;
+        }
+
+        div.n2-ss-spinner-rectangle-4 {
+            animation-delay: -0.9s;
+        }
+
+        @keyframes n2RectangleDark {
+            0%,
+            40%,
+            100% {
+                transform: scaleY(0.4);
+            }
+            20% {
+                transform: scaleY(1.0);
+            }
+        }
+
+        div#n2-ss-2 .nextend-spinnerhidden {
+            position: absolute;
+            left: -10000px;
+        }
+
+        div#n2-ss-2 .nextend-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -25px 0 0 -15px;
+            z-index: 1000;
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            font-size: 10px;
+            background-color: RGBA(0, 0, 0, 0.6);
+            border-radius: 3px;
+            padding: 10px 15px;
+        }
+
+        div#n2-ss-2 .nextend-spinner>div {
+            background-color: #f6f6f6;
+            height: 100%;
+            width: 6px;
+            display: inline-block;
+            animation: nextendstretchdelay 1.2s infinite ease-in-out;
+        }
+
+        div#n2-ss-2 .nextend-spinner .rect2 {
+            animation-delay: -1.1s;
+        }
+
+        div#n2-ss-2 .nextend-spinner .rect3 {
+            animation-delay: -1s;
+        }
+
+        div#n2-ss-2 .nextend-spinner .rect4 {
+            animation-delay: -0.9s;
+        }
+
+        div#n2-ss-2 .nextend-spinner .rect5 {
+            animation-delay: -0.8s;
+        }
+
+        @keyframes nextendstretchdelay {
+            0%,
+            40%,
+            100% {
+                transform: scaleY(0.4);
+            }
+            20% {
+                transform: scaleY(1.0);
+            }
+        }
+
+        div#n2-ss-2 {
+            width: 1000px;
+            margin: 0px 0px 0px 0px;
+        }
+
+        div#n2-ss-2 .n2-ss-slider-1 {
+            position: relative;
+        }
+
+        div#n2-ss-2 .n2-ss-slider-2 {
+            position: relative;
+            overflow: hidden;
+            border: 0px solid RGBA(23, 23, 23, 1);
+            border-radius: px;
+            background-repeat: repeat;
+            background-position: 50% 50%;
+            background-size: cover;
+            background-attachment: scroll;
+            background-color: RGBA(23, 23, 23, 1);
+            z-index: 1;
+        }
+
+        div#n2-ss-2 .n-particles-js-canvas-el {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 12;
+        }
+
+        div#n2-ss-2 .n2-ss-slider-3 {
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+            z-index: 20;
+        }
+
+        div#n2-ss-2 .n2-ss-slider-pane-single {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        div#n2-ss-2 .n2-ss-slider-pipeline {
+            display: flex;
+            height: 100%;
+            width: 100000%;
+            position: relative !important;
+            transform-style: preserve-3d;
+        }
+
+        .x-msie div#n2-ss-2 .n2-ss-slider-pipeline {
+            perspective: 1000px;
+            backface-visibility: visible;
+            transform-origin: 50% 50% 0;
+        }
+
+        div#n2-ss-2 .n2-ss-slide {
+            z-index: 1;
+            position: relative;
+            width: 100px;
+            height: 150px;
+            display: block;
+            border-radius: 0px;
+            background-clip: padding-box;
+            background-color: RGBA(23, 23, 23, 1);
+            border: 0px solid RGBA(62, 62, 62, 1);
+            box-sizing: border-box;
+        }
+
+        div#n2-ss-2 .n2-ss-layers-container {
+            position: relative;
+        }
+
+        div#n2-ss-2 .n2-ss-slide {
+            perspective: 1000px;
+        }
+
+        div#n2-ss-2[data-ie] .n2-ss-slide {
+            perspective: none;
+            transform: perspective(1000px);
+        }
+
+        div#n2-ss-2 .n2-ss-slide-active {
+            z-index: 3;
+        }
+
+        div#n2-ss-2 .n2-ss-layer {
+            -webkit-backface-visibility: hidden;
+        }
+
+        div#n2-ss-2 .nextend-thumbnail-default,
+        div#n2-ss-2 .nextend-thumbnail-inner {
+            overflow: hidden;
+            display: none;
+        }
+
+        div#n2-ss-2 .nextend-thumbnail-horizontal .nextend-thumbnail-scroller {
+            flex-direction: column;
+            display: none;
+        }
+
+        div#n2-ss-2 .nextend-thumbnail-inner {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        div#n2-ss-2 .n2-style-8d20d5f56c54ddd56d7366d0b1a13746-heading {
+            background: #000000;
+            background: RGBA(0, 0, 0, 0.67);
+            opacity: 1;
+            padding: 10px 10px 10px 10px;
+            box-shadow: none;
+            border-width: 0px;
+            border-style: solid;
+            border-color: #000000;
+            border-color: RGBA(0, 0, 0, 1);
+            border-radius: 3px;
+            display: none;
+        }
+
+        div#n2-ss-2 .nextend-shadow img {
+            max-width: none;
+            width: 100%;
+            display: none;
+        }
+
+        div#n2-ss-2 .nextend-bullet-bar .n2-bullet {
+            cursor: pointer;
+            transition: background-color 0.4s;
+            display: none;
+        }
+    </style>
+    <script>
+        (function() {
+            var N = this;
+            N.N2_ = N.N2_ || {
+                r: [],
+                d: []
+            }, N.N2R = N.N2R || function() {
+                N.N2_.r.push(arguments)
+            }, N.N2D = N.N2D || function() {
+                N.N2_.d.push(arguments)
+            }
+        }).call(window);
+        window.nextend = {
+            jQueryFallback: 'https://hdhub4u.mba/wp-includes/js/jquery/jquery.js',
+            localization: {},
+            ready: function(cb) {
+                console.error('nextend.ready will be deprecated!');
+                N2R('documentReady', function($) {
+                    cb.call(window, $)
+                })
+            }
+        };
+    </script>
+    <script src="js/n2-j.min.js"></script>
+    <script src="js/nextend-gsap.min.js"></script>
+    <script src="js/smartslider-frontend.min.js"></script>
+    <script src="js/smartslider-carousel-single-type-frontend.min.js"></script>
+    <script>
+        N2R('documentReady', function($) {
+            N2R(["documentReady", "smartslider-frontend", "nextend-gsap", "smartslider-carousel-single-type-frontend"], function() {
+                new N2Classes.SmartSliderCarouselSingle('#n2-ss-2', {
+                    "admin": false,
+                    "callbacks": "",
+                    "background.video.mobile": 0,
+                    "randomize": {
+                        "randomize": 0,
+                        "randomizeFirst": 0
+                    },
+                    "alias": {
+                        "id": 0,
+                        "smoothScroll": 0,
+                        "slideSwitch": 0,
+                        "scroll": 1
+                    },
+                    "align": "normal",
+                    "isDelayed": 0,
+                    "load": {
+                        "fade": 1,
+                        "scroll": 0
+                    },
+                    "playWhenVisible": 1,
+                    "playWhenVisibleAt": 0,
+                    "responsive": {
+                        "hideOn": {
+                            "desktopLandscape": false,
+                            "desktopPortrait": false,
+                            "tabletLandscape": false,
+                            "tabletPortrait": false,
+                            "mobileLandscape": false,
+                            "mobilePortrait": false
+                        },
+                        "onResizeEnabled": true,
+                        "type": "fullwidth",
+                        "downscale": 1,
+                        "upscale": 1,
+                        "minimumHeight": 0,
+                        "maximumSlideWidth": {
+                            "desktopLandscape": 10000,
+                            "desktopPortrait": 10000,
+                            "tabletLandscape": 10000,
+                            "tabletPortrait": 10000,
+                            "mobileLandscape": 10000,
+                            "mobilePortrait": 10000
+                        },
+                        "forceFull": 1,
+                        "forceFullOverflowX": "body",
+                        "forceFullHorizontalSelector": "body",
+                        "constrainRatio": 1,
+                        "sliderHeightBasedOn": "real",
+                        "decreaseSliderHeight": 0,
+                        "focusUser": 1,
+                        "focusEdge": "auto",
+                        "breakpoints": [{
+                            "device": "tabletPortrait",
+                            "type": "max-screen-width",
+                            "portraitWidth": 1199,
+                            "landscapeWidth": 1199
+                        }, {
+                            "device": "mobilePortrait",
+                            "type": "max-screen-width",
+                            "portraitWidth": 700,
+                            "landscapeWidth": 900
+                        }],
+                        "enabledDevices": {
+                            "desktopLandscape": 0,
+                            "desktopPortrait": 1,
+                            "tabletLandscape": 0,
+                            "tabletPortrait": 1,
+                            "mobileLandscape": 0,
+                            "mobilePortrait": 1
+                        },
+                        "sizes": {
+                            "desktopPortrait": {
+                                "width": 1000,
+                                "height": 150,
+                                "max": 3000,
+                                "min": 1000
+                            },
+                            "tabletPortrait": {
+                                "width": 701,
+                                "height": 105,
+                                "max": 1199,
+                                "min": 701
+                            },
+                            "mobilePortrait": {
+                                "width": 320,
+                                "height": 48,
+                                "max": 900,
+                                "min": 320
+                            }
+                        },
+                        "normalizedDeviceModes": {
+                            "unknown": "desktopPortrait",
+                            "desktopPortrait": "desktopPortrait",
+                            "desktopLandscape": "desktopPortrait",
+                            "tabletLandscape": "desktopPortrait",
+                            "tabletPortrait": "tabletPortrait",
+                            "mobileLandscape": "tabletPortrait",
+                            "mobilePortrait": "mobilePortrait"
+                        },
+                        "overflowHiddenPage": 0,
+                        "focus": {
+                            "offsetTop": "#wpadminbar",
+                            "offsetBottom": ""
+                        },
+                        "minimumSlideGap": 2,
+                        "justifySlides": 1,
+                        "sideSpacing": {
+                            "desktop": [0, 0, 0, 0],
+                            "tablet": [0, 0, 0, 0],
+                            "mobile": [0, 0, 0, 0]
+                        },
+                        "border": 0
+                    },
+                    "controls": {
+                        "mousewheel": 0,
+                        "touch": "horizontal",
+                        "keyboard": 1,
+                        "blockCarouselInteraction": 1
+                    },
+                    "lazyLoad": 2,
+                    "lazyLoadNeighbor": 0,
+                    "blockrightclick": 0,
+                    "maintainSession": 0,
+                    "autoplay": {
+                        "enabled": 1,
+                        "start": 1,
+                        "duration": 2000,
+                        "autoplayLoop": 1,
+                        "allowReStart": 1,
+                        "pause": {
+                            "click": 1,
+                            "mouse": "0",
+                            "mediaStarted": 1
+                        },
+                        "resume": {
+                            "click": 0,
+                            "mouse": "0",
+                            "mediaEnded": 1,
+                            "slidechanged": 0
+                        },
+                        "interval": 5,
+                        "intervalModifier": "loop",
+                        "intervalSlide": "current"
+                    },
+                    "perspective": 1000,
+                    "layerMode": {
+                        "playOnce": 0,
+                        "playFirstLayer": 1,
+                        "mode": "skippable",
+                        "inAnimation": "mainInEnd"
+                    },
+                    "parallax": {
+                        "enabled": 1,
+                        "mobile": 0,
+                        "is3D": 0,
+                        "animate": 1,
+                        "horizontal": "mouse",
+                        "vertical": "mouse",
+                        "origin": "slider",
+                        "scrollmove": "both"
+                    },
+                    "postBackgroundAnimations": 0,
+                    "mainanimation": {
+                        "duration": 800,
+                        "ease": "easeOutQuad"
+                    },
+                    "carousel": 1,
+                    "maxPaneWidth": 3000,
+                    "initCallbacks": function($) {}
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="n2-section-smartslider fitvidsignore " role="region" aria-label="Slider">
+        <div class="n2-ss-margin" style="margin: 0px 0px 5px 0px;">
+            <div id="n2-ss-2-align" class="n2-ss-align">
+                <div class="n2-padding">
+                    <div id="n2-ss-2" data-creator="Smart Slider 3" class="n2-ss-slider n2-ow n2-has-hover n2notransition  n2-ss-load-fade " style="font-size: 1rem;" data-fontsize="16">
+                        <div class="n2-ss-slider-1 n2_ss__touch_element n2-ow">
+                            <div class="n2-ss-slider-2 n2-ow" style="">
+                                <div class="n2-ss-slider-3 n2-ow">
+                                    <div class="n2-ss-slider-pane-single n2-ow">
+                                        <div class="n2-ss-slider-pipeline n2-ow">
+                                            <div data-first="1" data-slide-duration="0" data-id="48" data-title="Tenet-Poster-HDHub4u" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/tenet-2020-imax-hindi-bluray-full-movie/"
+                                                data-target="_blank" data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-48 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="479e29979023bfc99714e558b87e670e" data-desktop="images/tenet-poster-hdhub4u.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="59" data-title="MIRZAPUR2" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/mirzapur-season-1-hindi/" data-target="_blank" data-n2click="n2ss.openUrl(e);"
+                                                data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-59 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="827ad8e6aaf7a881a5a3113049dedbec" data-desktop="images/mirzapur2.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="49" data-title="MCU.P-I-II-III" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/marvel-cinematic-universe/" data-target="_blank" data-n2click="n2ss.openUrl(e);"
+                                                data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-49 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="e64357ba9cea83696784f60e573f9b80" data-desktop="images/mcu.p-i-ii-iii.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="57" data-title="Gandi-Baat-S05-Poster-HDHub4u.Link_" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/gandi-baat-s05-hindi-webrip-all-episodes/"
+                                                data-target="_blank" data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-57 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="f4af23fa69e5cdebb4116df83ec51bfd" data-desktop="images/gandi-baat-s05-poster-hdhub4u.link_.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="53" data-title="axdkUZW36XIvzmPJz7kkZ5buDzF" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/raat-akeli-hai-2020-hindi/" data-target="_blank"
+                                                data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-53 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="5eb54269231e6e7edd4b3b4187b5683c" data-desktop="images/axdkuzw36xivzmpjz7kkz5budzf.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="43" data-title="MV5BMDJiNzUwYzEtNmQ2Yy00NWE4LWEwNzctM2M0MjE0OGUxZTA3XkEyXkFqcGdeQXVyMTMxODk2OTU_V1_SY1000_CR006751000_AL_" data-haslink="1" style="cursor:pointer;" onclick=""
+                                                data-href="https://hdhub4u.mba/extraction-2020-hindi-web-hd/" data-target="_blank" data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-43 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="f43e7e7542ed7527e6035ba4c7dda6d5" data-desktop="images/mv5bmdjinzuwyzetnmq2yy00nwe4lwewnzctm2m0mje0oguxzta3xkeyxkfqcgdeqxvymtmxodk2otu_v1_sy1000_cr006751000_al_.jpeg" class="n2-ss-slide-background-image"
+                                                        data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="47" data-title="The-Family-Man-Poster-HDHub4u" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/the-family-man-season-1-hindi-complete/"
+                                                data-target="_blank" data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-47 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="403e70ef4a4af2e53b71b5a4a80637f6" data-desktop="images/the-family-man-poster-hdhub4u.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="54" data-title="174127 (1)" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/dil-bechara-2020-hindi-webrip/" data-target="_blank" data-n2click="n2ss.openUrl(e);"
+                                                data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-54 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="a96490dcf0fcf9f8eb693320db607dbd" data-desktop="images/174127-1.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="55" data-title="65071e2a5874189ffbe5928a53f4cbb7-1" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/agent-sai-srinivasa-athreya-2019-hindi-uncut-full-movie/"
+                                                data-target="_blank" data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-55 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="83867826a1118553aecdf90e803ff324" data-desktop="images/65071e2a5874189ffbe5928a53f4cbb7-1.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="50" data-title="hostages.s02.poster" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/hostages-season-2-hindi-webrip-all-episodes/" data-target="_blank"
+                                                data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-50 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="64537e590f4ebc7c15c844c009542f5e" data-desktop="images/hostages.s02.poster.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="56" data-title="1b721396f789e8be4f175175962b2a90" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/fast-and-furious/" data-target="_blank"
+                                                data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-56 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="7080aa37fa7620d630e459a48cb247c4" data-desktop="images/1b721396f789e8be4f175175962b2a90.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="58" data-title="Scam1992_Portrait_Thumb_gen" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/scam-1992-the-harshad-mehta-story-season-1-hindi-webrip/"
+                                                data-target="_blank" data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-58 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="de4bcc418079f15a04f2bf1c089dc18f" data-desktop="images/scam1992_portrait_thumb_gen.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="45" data-title="wSXJHO9WHLb0aCwvQrtco7vOmWA" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/dark-season-1/" data-target="_blank" data-n2click="n2ss.openUrl(e);"
+                                                data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-45 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="1884c34b0a140c5f098c519eafe5d52d" data-desktop="images/wsxjho9whlb0acwvqrtco7vomwa.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="34" data-title="5959e28954f39ac422d9802a36497741" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/ratsasan-2018-uncut-hindi-webrip-full-movie/"
+                                                data-target="_blank" data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-34 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="40b6137b221e7609ae8205737b4371c0" data-desktop="images/5959e28954f39ac422d9802a36497741.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="52" data-title="cIWAEsUu15Rl4ziVikw2bfMakvd" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/breathe-into-the-shadows-season-1-hindi/"
+                                                data-target="_blank" data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-52 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="b88e7a8aba7cd9b7f2e37b6cb58af2af" data-desktop="images/ciwaesuu15rl4zivikw2bfmakvd.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="51" data-title="EbcDgcpUcAAtAYu" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/undekhi-2020-season-1-complete-hindi-web-dl/" data-target="_blank"
+                                                data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-51 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="7edd9d431b614beef674a55766a3f59d" data-desktop="images/ebcdgcpucaatayu.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="46" data-title="V-Movie-Poster-HDHub4u" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/v-2020-hindi-webrip-full-movie/" data-target="_blank"
+                                                data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-46 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="4b420d5173b117401438446c4f695137" data-desktop="images/v-movie-poster-hdhub4u.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="20" data-title="e5c6174f35c27f03f35febbb11f1f0b1" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/kgf-chapter-1-2018-hindi-webrip-full-movie/"
+                                                data-target="_blank" data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-20 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="08c42884ba9f0ac4f4fa52148b2efa9b" data-desktop="images/e5c6174f35c27f03f35febbb11f1f0b1.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="23" data-title="844a89f324afd743543d9054c4d19f4f" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/inside-edge-season-2-hindi/" data-target="_blank"
+                                                data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-23 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="02bedb774ab7005071597db6eb7c5358" data-desktop="images/844a89f324afd743543d9054c4d19f4f.jpeg" class="n2-ss-slide-background-image" data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="33" data-title="28917_front" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/gemini-man-2019-hindi-bluray/" data-target="_blank" data-n2click="n2ss.openUrl(e);"
+                                                data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-33 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="e11724a822754fb9c693506d1bccab97" data-
+                                                        
+                                                    desktop="images/28917_front.jpeg" class="n2-ss-slide-background-image"
+                                                        
+                                                     data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                            <div data-slide-duration="0" data-id="26" data-title="285621529ae4195f00a2270a5c932f71" data-haslink="1" style="cursor:pointer;" onclick="" data-href="https://hdhub4u.mba/saaho-2019-hindi-org-web-dl/" data-target="_blank"
+                                                data-n2click="n2ss.openUrl(e);" data-n2middleclick="n2ss.openUrl(e, '_blank');" class=" n2-ss-slide  n2-ss-slide-26 n2-ss-canvas n2-ow">
+                                                <div class="n2-ss-slide-background n2-ow" data-mode="fill">
+                                                    <div data-hash="09f0796bcfdac8011818655b7736881e" data-
+                                                        
+                                                            
+                                                        
+                                                    desktop="images/285621529ae4195f00a2270a5c932f71.jpeg" class="n2-ss-slide-background-image" 
+                                                        
+                                                            
+                                                        
+                                                    data-blur="0" data-alt="" data-title=""></div>
+                                                </div>
+                                                <div class="n2-ss-layers-container n2-ow">
+                                                    <div class="n2-ss-layer n2-ow" style="padding:0px 0px 0px 0px;" data-desktopportraitpadding="0|*|0|*|0|*|0" data-sstype="slide" data-csstextalign="center" data-pm="default"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="n2-ss-2-spinner" style="display: none;">
+                        <div>
+                            <div class="n2-ss-spinner-rectangle-dark-container">
+                                <div class="n2-ss-spinner-rectangle-dark">
+                                    <div class="n2-ss-spinner-rectangle-1"></div>
+                                    <div class="n2-ss-spinner-rectangle-2"></div>
+                                    <div class="n2-ss-spinner-rectangle-3"></div>
+                                    <div class="n2-ss-spinner-rectangle-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="n2-ss-2-placeholder" style="min-height:0px;position: relative;z-index:2;background-color:RGBA(0,0,0,0); background-color:RGBA(255,255,255,0);"><img style="width: 100%; max-width:10000px; display: block;opacity:0;margin:0px;" class="n2-ow skip-lazy" data-skip-lazy="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjE1MCIgPjwvc3ZnPg=="
+                alt="Slider"></div>
+    </div>
+</body>
+
+</html>
