@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Engineering India</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    /* Culturally vibrant theme */
+    .theme-orange {
+      background-color: #FF6F00;
+      color: white;
+    }
+    .theme-green {
+      background-color: #FF6F00;
+      color: white;
+    }
+    .text-green {
+      color: #FF6F00;
+    }
+    /* Padding and alignment */
+    section {
+      padding: 60px 0;
+    }
+    .hero-section {
+      height: 100vh;
+      background: url('https://th.bing.com/th/id/OIP.YvDhSuP_MIKwcwREUPbUaAHaE8?rs=1&pid=ImgDetMain') center center/cover no-repeat;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-section h1 {
+      font-size: 4rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      animation: slideInLeft 2s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s;
+    }
+    /* Keyframe animation */
+    @keyframes slideInLeft {
+      0% { transform: translateX(-100%); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+    .fade-in-up {
+      opacity: 0;
+      animation: fadeInUp 1.5s forwards;
+    }
+    @keyframes fadeInUp {
+      0% { transform: translateY(50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light theme-green sticky-top">
+  <div class="container">
+    <a class="navbar-brand text-white" href="#">Engineering India</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#about">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section text-center">
+  <div class="container" data-aos="fade-up">
+    <h1>Empowering Engineers, Strengthening Communities</h1>
+    <p>Collaborating for sustainable development, innovation, and growth.</p>
+    <a href="#about" class="btn btn-warning btn-lg mt-3">Explore More</a>
+  </div>
+</section>
+
+<!-- About Us Section -->
+<section id="about" class="text-center">
+  <div class="container fade-in-up" data-aos="fade-up">
+    <h2 class="mb-4">About Engineering India</h2>
+    <p>Engineering India is a collaborative platform that brings together engineers from various disciplines with the shared goal of promoting community welfare. We celebrate India’s rich cultural heritage while fostering innovation in engineering for a better future.</p>
+    <img src="https://www.travellersofindia.com/wp-content/uploads/2021/05/The_Unique_Culture_of_India_5_Major_Traditions__Indian_Customs_TravellersofIndia.jpg" class="img-fluid mt-4" alt="Indian Culture">
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="theme-orange text-center">
+  <div class="container" data-aos="fade-up">
+    <h2 class="mb-5 text-white">Our Services</h2>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4 shadow-sm fade-in-up">
+          <img src="https://thumbs.dreamstime.com/z/skills-concept-education-training-improvement-people-get-knowledge-build-career-isolated-flat-vector-illustration-162956540.jpg" class="card-img-top" alt="Skill Development">
+          <div class="card-body">
+            <h5 class="card-title">Skill Development</h5>
+            <p class="card-text">Refine your engineering skills through projects and collaboration with experts.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card mb-4 shadow-sm fade-in-up">
+          <img src="https://th.bing.com/th/id/OIP.N9PpGxllBiYC5QrRqHRZLgHaFk?rs=1&pid=ImgDetMain" class="card-img-top" alt="Community Projects">
+          <div class="card-body">
+            <h5 class="card-title">Community Projects</h5>
+            <p class="card-text">Work on real-world projects aimed at solving community challenges.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card mb-4 shadow-sm fade-in-up">
+          <img src="https://th.bing.com/th/id/OIP.B106yzk6oFLJXrfF7kp7ZwHaFJ?rs=1&pid=ImgDetMain" class="card-img-top" alt="Networking">
+          <div class="card-body">
+            <h5 class="card-title">Networking</h5>
+            <p class="card-text">Connect with professionals to share knowledge and opportunities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="text-center">
+  <div class="container" data-aos="fade-up">
+    <h2 class="mb-4 text-green">Get in Touch</h2>
+    <p>Have questions or want to collaborate? Reach out to us!</p>
+    <a href="mailto:info@engineeringindia.com" class="btn btn-success">Contact Us</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="theme-green text-white text-center py-3">
+  <div class="container">
+    <p>&copy; 2024 Engineering India | All Rights Reserved</p>
+  </div>
+</footer>
+
+<!-- Bootstrap JS and AOS Animation JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1200,
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive and Auto-Resizing Slider</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+  />
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Container resizes based on viewport height (vh) and width (vw) */
+    .swiper-container {
+      width: 100vw; /* 100% of viewport width */
+      height: 60vh; /* 60% of viewport height */
+      padding: 30px 0;
+      position: relative;
+    }
+
+    .swiper-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .slide-content {
+      text-align: center;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      width: 100%;
+      box-sizing: border-box;
+      z-index: 1;
+    }
+
+    .slide-content h2 {
+      margin-bottom: 10px;
+      font-size: 2.5vw; /* Scale text based on viewport width */
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .slide-content p {
+      font-size: 1.5vw; /* Scale text based on viewport width */
+      line-height: 1.5;
+    }
+
+    .swiper-slide img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      filter: brightness(0.7);
+    }
+
+    /* Style for the navigation buttons */
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: white;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 10px;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .swiper-button-next {
+      right: 10px;
+    }
+
+    .swiper-button-prev {
+      left: 10px;
+    }
+
+    /* Make the slides responsive */
+    @media (max-width: 1024px) {
+      .swiper-container {
+        height: 50vh; /* 50% of viewport height */
+      }
+
+      .slide-content h2 {
+        font-size: 5vw; /* Adjust for smaller screens */
+      }
+
+      .slide-content p {
+        font-size: 3vw;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .swiper-container {
+        height: 40vh;
+      }
+
+      .slide-content h2 {
+        font-size: 6vw;
+      }
+
+      .slide-content p {
+        font-size: 4vw;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .swiper-container {
+        height: 35vh;
+      }
+
+      .slide-content h2 {
+        font-size: 7vw;
+      }
+
+      .slide-content p {
+        font-size: 5vw;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <img src="https://source.unsplash.com/random/900x400?internship" alt="Internship">
+        <div class="slide-content">
+          <h2>Internship Opportunities</h2>
+          <p>Boost your career with internships in electronics and telecommunications. Expand your network and enhance your resume.</p>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="swiper-slide">
+        <img src="https://source.unsplash.com/random/900x400?technology" alt="Personality Development">
+        <div class="slide-content">
+          <h2>Personality Development</h2>
+          <p>Leverage the collective power of engineers and technology enthusiasts for the betterment of society.</p>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="swiper-slide">
+        <img src="https://source.unsplash.com/random/900x400?public-speaking" alt="Public Speaking">
+        <div class="slide-content">
+          <h2>Public Speaking Ability</h2>
+          <p>Develop and refine your public speaking skills to enhance both your personal and professional life.</p>
+        </div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="swiper-slide">
+        <img src="https://source.unsplash.com/random/900x400?leadership" alt="Leadership">
+        <div class="slide-content">
+          <h2>Leadership Skills</h2>
+          <p>Grow your leadership abilities through hands-on projects and collaborative opportunities.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Navigation -->
+    <!-- <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div> -->
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        // Show 1 slide on small screens
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        // Show 2 slides on tablets
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        // Show 3 slides on desktop
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
